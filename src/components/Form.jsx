@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelect } from '../hooks/useSelect';
-import styles from './Formulario.module.css';
+import styles from './Form.module.css';
+import PropTypes from 'prop-types';
 
-export const Formulario = ({ setSearchCategory }) => {
+export const Form = ({ setSearchCategory }) => {
   const OPTIONS = [
     { value: 'general', label: 'General' },
     { value: 'business', label: 'Negocios' },
@@ -23,7 +24,7 @@ export const Formulario = ({ setSearchCategory }) => {
   };
 
   return (
-    <div className={`${styles.buscador} row`}>
+    <div className={`${styles.search} row`}>
       <div className="col s12 m8 offset-m2">
         <form onSubmit={handleSubmit}>
           <h2 className={styles.heading}>Encuentra noticias por categoría</h2>
@@ -41,4 +42,8 @@ export const Formulario = ({ setSearchCategory }) => {
       </div>
     </div>
   );
+};
+
+Form.propTypes = {
+  setSearchCategory: PropTypes.func.isRequired
 };
